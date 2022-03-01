@@ -1,0 +1,13 @@
+{
+   "smtp_server": "mail.server.com",
+   "smtp_port": 587,
+   "smtp_user": "summit@server.com",
+   "smtp_pass": "passord",
+   "profiles": [{
+      "name": "Scout Unit",
+      "username": "vic-#######",
+      "password": "password",
+      "unit_id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee",
+      "report_recipients": ["recipient@server.com"]
+   }]
+}
