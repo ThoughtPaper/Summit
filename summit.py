@@ -192,7 +192,8 @@ def run_report(username, password, unit_id, report_recipients,smtp_server,smtp_p
                 if achievement_info is not None: 
                     for y in achievement_info["results"]:
                         update_time = datetime.datetime.fromisoformat(y["status_updated"]).astimezone()
-                        if y["type"]=='milestone' and y["status"]=='in_progress' and y["milestone_requirement_status"]=='complete':
+                        if (y["type"]=='milestone' and y["milestone_requirement_status"]=='complete' 
+                            and (y["status"]=='in_progress' or y["status"]=='draft_review' or y["status"]=='feedback_review')):
                             type = '{0} {1}'.format(lookup_achievement(y["type"]),lookup_achievement(y["achievement_meta"]["stage"]))
                             member_content+='  {0} - Ready for review<br>'.format(type)
                             #print('{0} - {1} {2})'.format(type,y["status"],y["status_updated"]))
