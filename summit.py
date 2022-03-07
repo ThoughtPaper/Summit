@@ -209,7 +209,8 @@ def run_report(username, password, unit_id, report_recipients,smtp_server,smtp_p
                                     type = '{0} {1} {2}'.format(lookup_achievement(y["type"]),lookup_achievement(y["achievement_meta"]["stream"]),lookup_achievement(y["achievement_meta"]["stage"]))
                                 member_content+='  {0}<br>'.format(type)
                                 #print('{0} - {1} ({2})'.format(type,y["status"],y["status_updated"]))
-                        if y["type"]=='milestone' and y["status"]=='in_progress' and y["milestone_requirement_status"]=='incomplete':
+                        if (y["type"]=='milestone' and y["milestone_requirement_status"]=='incomplete'
+                            and (y["status"]=='in_progress' or y["status"]=='draft_review')):
                             milestone = y["achievement_meta"]["stage"]
                             p_total = (float(y["event_count"]["participant"]["community"]) + 
                                 float(y["event_count"]["participant"]["outdoors"]) + 
